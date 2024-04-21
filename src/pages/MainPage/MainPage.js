@@ -6,6 +6,8 @@ import './MainPage.css'; // Styles for the MainPage
 import './Home.css'; // Styles for the Home component
 import '../../components/Navbar.css'; // Styles for the Navbar component
 import MarsRoverContent from './MarsRoverContent';
+import EpicContent from './EpicContent';
+import NeoWsContent from './NeoWsContent';
 
 const MainPage = () => {
   const [currentPage, setCurrentPage] = useState('home');
@@ -18,6 +20,10 @@ const MainPage = () => {
         return <POTDContent />;
       case 'marsrover':
         return <MarsRoverContent />;
+      case 'epic':
+        return <EpicContent />;
+      case 'neow':
+        return <NeoWsContent />;
       default:
         return <Home />;
     }

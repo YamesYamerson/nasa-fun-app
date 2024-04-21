@@ -2,8 +2,8 @@ import React from 'react';
 import { useFetchMarsRoverPhotos } from '../../functions/useFetchMarsRoverPhotos'; // Custom hook to fetch Mars Rover photos
 import './MarsRoverContent.css'; // Import CSS file for styling
 
-const MarsRoverContent = () => {
-  const { data, error, loading } = useFetchMarsRoverPhotos(1000); // Fetch photos for sol 1000
+const MarsRoverContent = ({ sol }) => {
+  const { data, error, loading } = useFetchMarsRoverPhotos(sol); // Use the custom hook with the specified 'sol'
 
   if (loading) {
     return <div>Loading...</div>; // Display loading message while fetching
@@ -19,7 +19,7 @@ const MarsRoverContent = () => {
 
   return (
     <div className="mars-rover-content">
-      <h1 className="mars-rover-title">Mars Rover Photos</h1>
+      <h1 className="mars-rover-title">Mars Rover Photos for Sol {sol}</h1>
       <div className="mars-rover-photos">
         {data.map((photo) => (
           <div key={photo.id} className="mars-rover-photo">
