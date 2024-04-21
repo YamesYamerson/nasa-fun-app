@@ -1,0 +1,28 @@
+/* App.css */
+.app {
+    font-family: Arial, sans-serif;
+  }
+  
+  nav {
+    background: #333;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  nav button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+  }
+  
+  nav button:hover {
+    background: #0056b3;
+  }
+  
+  div {
+    text-align: center;
+  }
+  
