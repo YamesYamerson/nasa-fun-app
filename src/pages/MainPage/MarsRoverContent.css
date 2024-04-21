@@ -1,0 +1,20 @@
+.mars-rover-content {
+    text-align: center; /* Center-align the content */
+  }
+  
+  .mars-rover-photos {
+    display: flex;
+    flex-wrap: wrap; /* Wrap photos in case there are many */
+    justify-content: center; /* Center-align the photos */
+  }
+  
+  .mars-rover-photo {
+    margin: 10px; /* Add margin between photos */
+  }
+  
+  .mars-rover-photo img {
+    max-width: 100%; /* Ensure images are responsive */
+    border: 2px solid #ddd; /* Add border to images */
+    border-radius: 5px; /* Rounded corners */
+  }
+  
