@@ -14,6 +14,12 @@ const Navbar = ({ onNavigate }) => {
         <li>
           <button onClick={() => onNavigate('marsrover')}>Mars Rover</button>
         </li>
+        <li>
+          <button onClick={() => onNavigate('epic')}>Climate Images</button>
+        </li>
+        <li>
+          <button onClick={() => onNavigate('neow')}>Near Earth Object Images</button>
+        </li>
       </ul>
     </nav>
   );

@@ -4,7 +4,7 @@ const NASA_API_KEY = 'k5NkO2ahsJNV6D84ph5bDu04U5YPYE30WC5hfgnW'; // Replace with
 const NASA_APOD_URL = `https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}`;
 
 // Custom hook to fetch the Astronomy Picture of the Day (APOD)
-export const UseFetchNasaApod = () => { // Custom hook name starts with 'use'
+export const useFetchNasaApod = () => { // Custom hook name starts with 'use'
   const [data, setData] = useState(null); // State for fetched data
   const [error, setError] = useState(null); // State for error handling
   const [loading, setLoading] = useState(true); // State for loading status
