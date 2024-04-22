@@ -8,6 +8,7 @@ import '../../components/Navbar.css'; // Styles for the Navbar component
 import MarsRoverContent from './MarsRoverContent';
 import EpicContent from './EpicContent';
 import NeoWsContent from './NeoWsContent';
+import DonkiContent from './DonkiContent';
 
 const MainPage = () => {
   const [currentPage, setCurrentPage] = useState('home');
@@ -24,6 +25,8 @@ const MainPage = () => {
         return <EpicContent />;
       case 'neow':
         return <NeoWsContent />;
+      case 'donki':
+        return <DonkiContent />;
       default:
         return <Home />;
     }
