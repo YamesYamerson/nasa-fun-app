@@ -9,28 +9,30 @@ import { useEffect, useRef } from 'react';
  * @returns {Object} - Ref object to attach to the element to be observed.
  */
 const useIntersectionObserver = (onIntersect, options = { threshold: 1.0 }) => {
-  const observerRef = useRef(null);
+  const observerRef = useRef(null); // Reference to the observed element
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
-      const entry = entries[0]; // We only care about the first entry
+      const entry = entries[0];
       if (entry.isIntersecting) {
-        onIntersect(); // Call the callback function when intersecting
+        onIntersect(); // Call callback function when intersecting
       }
     }, options);
 
-    if (observerRef.current) {
-      observer.observe(observerRef.current);
+    const currentRef = observerRef.current; // Copy the ref to a local variable
+
+    if (currentRef) {
+      observer.observe(currentRef); // Observe the current reference
     }
 
     return () => {
-      if (observerRef.current) {
-        observer.unobserve(observerRef.current);
+      if (currentRef) { // Use the local variable for cleanup
+        observer.unobserve(currentRef);
       }
     };
-  }, [onIntersect, options]); // Run the effect when 'onIntersect' or 'options' change
+  }, [onIntersect, options]); // Ensure the effect re-runs if dependencies change
 
-  return observerRef; // Return the ref to attach to the element
+  return observerRef; // Return the ref to attach to the observed element
 };
 
 export default useIntersectionObserver;
