@@ -1,12 +1,13 @@
 import React from 'react';
 import { useFetchNasaEpic } from '../../helper/useFetchNasaEpic'; // Custom hook to fetch NASA EPIC content
 import './EpicContent.css'; // Import CSS file for styling
+import HappyPlanetLoading from '../../components/HappyPlanetLoading'; // Import the loading animation
 
 const EpicContent = ({ date = '2024-01-01' }) => {
   const { data, error, loading } = useFetchNasaEpic(date); // Fetch EPIC metadata for a specified date
 
   if (loading) {
-    return <div>Loading...</div>; // Display loading message while fetching
+    return <HappyPlanetLoading />; // Display loading message while fetching
   }
 
   if (error) {

@@ -1,5 +1,6 @@
 import useFetchNeoWs from '../../helper/useFetchNeoWs';
 import './NeoWsContent.css';
+import HappyPlanetLoading from '../../components/HappyPlanetLoading';
 
 const NeoWsContent = () => {
   // Get today's date
@@ -15,7 +16,7 @@ const NeoWsContent = () => {
   const { data, error, loading } = useFetchNeoWs(start, finalEndDate);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <HappyPlanetLoading />;
   }
 
   if (error) {
