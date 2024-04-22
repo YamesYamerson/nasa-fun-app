@@ -1,36 +1,49 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useEffect, useState } from 'react';
 
-const useFetchDONKI = (endpoint, startDate, endDate) => {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+const useFetchDONKI = () => {
+    const [data, setData] = useState({
+        cmes: [],
+        notifications: [],
+        solarFlares: []
+    });
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      setError(null);
+    useEffect(() => {
+        const fetchDONKI = async () => {
+            const today = new Date();
+            const startDateCME = new Date(today.getTime() - 30 * 24 * 60 * 60 * 1000); // 30 days ago
+            const startDateNotifications = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000); // 7 days ago
+            const startDateSolarFlares = new Date(today.getTime() - 30 * 24 * 60 * 60 * 1000); // 30 days ago
 
-      try {
-        const response = await axios.get(`https://api.nasa.gov/DONKI/${endpoint}`, {
-          params: {
-            startDate,
-            endDate,
-            api_key: 'YOUR_API_KEY', // Replace with your NASA API key
-          },
-        });
-        setData(response.data);
-      } catch (err) {
-        setError('Error fetching data');
-      } finally {
-        setLoading(false);
-      }
-    };
+            try {
+                const fetchCMEs = fetch(`/api/get-cmes?startDate=${startDateCME.toISOString()}&endDate=${today.toISOString()}`)
+                    .then(response => response.json());
 
-    fetchData();
-  }, [endpoint, startDate, endDate]);
+                const fetchNotifications = fetch(`/api/get-notifications?startDate=${startDateNotifications.toISOString()}&endDate=${today.toISOString()}`)
+                    .then(response => response.json());
 
-  return { data, loading, error };
+                const fetchSolarFlares = fetch(`/api/get-solar-flare?startDate=${startDateSolarFlares.toISOString()}&endDate=${today.toISOString()}`)
+                    .then(response => response.json());
+
+                const [cmesData, notificationsData, solarFlaresData] = await Promise.all([fetchCMEs, fetchNotifications, fetchSolarFlares]);
+
+                console.log("CMEs Data:", cmesData);
+                console.log("Notifications Data:", notificationsData);
+                console.log("Solar Flares Data:", solarFlaresData);
+
+                setData({
+                    cmes: cmesData.slice(-5),
+                    notifications: notificationsData.slice(-5),
+                    solarFlares: solarFlaresData.slice(-5)
+                });
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        };
+
+        fetchDONKI();
+    }, []);
+
+    return data;
 };
 
 export default useFetchDONKI;
