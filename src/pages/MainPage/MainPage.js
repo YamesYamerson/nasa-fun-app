@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import Navbar from '../../components/Navbar'; // Ensure correct relative path
 import Home from './Home';
 import POTDContent from './PotdContent';
-import './MainPage.css'; // Styles for the MainPage
-import './Home.css'; // Styles for the Home component
-import '../../components/Navbar.css'; // Styles for the Navbar component
 import MarsRoverContent from './MarsRoverContent';
 import EpicContent from './EpicContent';
 import NeoWsContent from './NeoWsContent';
 import DonkiContent from './DonkiContent';
+import './MainPage.css'; // Styles for the MainPage
+import './Home.css'; // Styles for the Home component
+import '../../components/Navbar.css'; // Styles for the Navbar component
 
 const MainPage = () => {
   const [currentPage, setCurrentPage] = useState('home');
