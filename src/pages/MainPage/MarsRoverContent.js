@@ -1,12 +1,13 @@
 import React from 'react';
 import { useFetchMarsRoverPhotos } from '../../functions/useFetchMarsRoverPhotos'; // Custom hook to fetch Mars Rover photos
 import './MarsRoverContent.css'; // Import CSS file for styling
+import LoadingPage from '../../components/LoadingPage'; // Import LoadingScreen component
 
 const MarsRoverContent = ({ sol }) => {
   const { data, error, loading } = useFetchMarsRoverPhotos(sol); // Use the custom hook with the specified 'sol'
 
   if (loading) {
-    return <div>Loading...</div>; // Display loading message while fetching
+    return <LoadingPage />; // Display loading message while fetching
   }
 
   if (error) {
@@ -23,7 +24,7 @@ const MarsRoverContent = ({ sol }) => {
       <div className="mars-rover-photos">
         {data.map((photo) => (
           <div key={photo.id} className="mars-rover-photo">
-            <img src={photo.img_src} alt={`Mars Rover Photo taken by ${photo.rover.name}`} />
+            <img src={photo.img_src} alt={`Taken by ${photo.rover.name}`} /> {/* Corrected alt attribute */}
             <p>Camera: {photo.camera.full_name}</p> {/* Display camera information */}
           </div>
         ))}
@@ -32,4 +33,4 @@ const MarsRoverContent = ({ sol }) => {
   );
 };
 
-export default MarsRoverContent; // Correct export statement
+export default MarsRoverContent;
