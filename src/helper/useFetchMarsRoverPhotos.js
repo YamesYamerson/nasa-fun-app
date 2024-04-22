@@ -29,7 +29,7 @@ export const useFetchMarsRoverPhotos = (sol = 1000, page = 1, pageSize = 5) => {
     };
 
     fetchData(); // Fetch data when the useEffect is triggered
-  }, [sol, page]); // Dependency array includes 'sol' and 'page'
+  }, [sol, page, pageSize]); // Include 'pageSize' in the dependency array
 
   return { data, error, loading }; // Return the fetched data, error, and loading states
 };
