@@ -16,12 +16,14 @@
   
   /* Styling for the date sections */
   .neows-date {
-    border-bottom: 1px solid #ddd; /* Add a border between dates */
     margin-bottom: 20px; /* Add space between date sections */
+
   }
   
   /* Styling for each near-earth object */
   .neows-object {
+    color: black;
+
     padding: 10px; /* Add padding around each object */
     background-color: #f9f9f9; /* Light background color for contrast */
     border: 1px solid #ddd; /* Add a border around each object */

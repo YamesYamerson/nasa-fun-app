@@ -1,0 +1,36 @@
+/* HappyPlanetLoading.css */
+.happy-planet-loading {
+   
+    border-radius: 50%; /* Make it round */
+    background-color: black; /* Earth-like color */
+    position: relative; /* Relative positioning for face elements */
+    animation: spin 2s linear infinite; /* Spinning animation */
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg); /* Full rotation */
+    }
+  }
+  
+
+
+  .happy-planet-face img{
+    border-radius: 50%;
+    width:600px;
+    height: 600px;
+  }
+  /* Centering the loading animation in the middle of the page */
+.loading-container {
+    padding-top: 100px;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 80vh; /* Use height to push it below the navbar */
+    text-align: center;
+    background-color: transparent;
+  }
+  
