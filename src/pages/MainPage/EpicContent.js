@@ -27,7 +27,7 @@ const EpicContent = ({ date = '2024-01-01' }) => {
           <div key={image.identifier} className="epic-image">
             <img
               src={`https://epic.gsfc.nasa.gov/archive/natural/${date.replace(/-/g, '/')}/png/${image.image}.png`}
-              alt={`EPIC Image taken on ${date}`}
+              alt={`EPIC capture taken on ${date}`}
             />
             <p>Caption: {image.caption}</p> {/* Display caption for the image */}
           </div>

@@ -1,13 +1,18 @@
-import React, { useEffect, useState } from 'react';
 import useFetchNeoWs from '../../helper/useFetchNeoWs';
 import './NeoWsContent.css';
 
-const NeoWsContent = ({ start_date, end_date }) => {
-  // Ensure default dates are set if not provided
-  const [finalStartDate, setFinalStartDate] = useState(start_date || '2024-01-01');
-  const [finalEndDate, setFinalEndDate] = useState(end_date || '2024-01-02');
+const NeoWsContent = () => {
+  // Get today's date
+  const currentDate = new Date();
 
-  const { data, error, loading } = useFetchNeoWs(finalStartDate, finalEndDate);
+  // Calculate the past three days' start and end dates
+  const finalEndDate = currentDate.toISOString().split('T')[0]; // Today's date
+  const finalStartDate = new Date(currentDate); // Create a new date instance for manipulation
+  finalStartDate.setDate(finalStartDate.getDate() - 2); // Go back three days (includes today)
+
+  const start = finalStartDate.toISOString().split('T')[0]; // Convert to ISO string
+
+  const { data, error, loading } = useFetchNeoWs(start, finalEndDate);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -24,7 +29,7 @@ const NeoWsContent = ({ start_date, end_date }) => {
   return (
     <div className="neows-content">
       <h1 className="neows-title">
-        Near-Earth Objects from {finalStartDate} to {finalEndDate}
+        Near-Earth Objects from {start} to {finalEndDate}
       </h1>
       {Object.keys(data.near_earth_objects).map((date) => (
         <div key={date} className="neows-date">
