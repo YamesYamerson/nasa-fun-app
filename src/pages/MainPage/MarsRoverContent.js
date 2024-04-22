@@ -1,21 +1,32 @@
-import React from 'react';
-import { useFetchMarsRoverPhotos } from '../../helper/useFetchMarsRoverPhotos'; // Custom hook to fetch Mars Rover photos
-import './MarsRoverContent.css'; // Import CSS file for styling
-import LoadingPage from '../../components/LoadingPage'; // Import LoadingScreen component
+import React, { useState } from 'react';
+import { useFetchMarsRoverPhotos } from '../../helper/useFetchMarsRoverPhotos';
+import useIntersectionObserver from '../../helper/useIntersectionObserver';
+import ImageWithLoader from '../../components/ImageWithLoader'; // Import the new component
+import './MarsRoverContent.css';
+import HappyPlanetLoading from '../../components/HappyPlanetLoading';
 
 const MarsRoverContent = ({ sol }) => {
-  const { data, error, loading } = useFetchMarsRoverPhotos(sol); // Use the custom hook with the specified 'sol'
+  const [page, setPage] = useState(1); // Pagination
+  const pageSize = 5;
 
-  if (loading) {
-    return <LoadingPage />; // Display loading message while fetching
+  const { data, error, loading } = useFetchMarsRoverPhotos(sol, page, pageSize);
+
+  const onIntersect = () => {
+    setPage((prev) => prev + 1); // Load more photos when intersected
+  };
+
+  const observerRef = useIntersectionObserver(onIntersect);
+
+  if (loading && page === 1) { // Initial loading state
+    return <HappyPlanetLoading />;
   }
 
   if (error) {
-    return <div>Error: {error}</div>; // Display error message if there's an error
+    return <div>Error: {error}</div>;
   }
 
   if (!data || data.length === 0) {
-    return <div>No photos available for this sol</div>; // Handle case where no data or empty data
+    return <div>No photos available for this sol</div>;
   }
 
   return (
@@ -24,11 +35,17 @@ const MarsRoverContent = ({ sol }) => {
       <div className="mars-rover-photos">
         {data.map((photo) => (
           <div key={photo.id} className="mars-rover-photo">
-            <img src={photo.img_src} alt={`Taken by ${photo.rover.name}`} /> {/* Corrected alt attribute */}
-            <p>Camera: {photo.camera.full_name}</p> {/* Display camera information */}
+            <ImageWithLoader
+              src={photo.img_src}
+              alt={`Photo taken by ${photo.rover.name}`} // Corrected alt attribute
+            />
+            {photo.camera.full_name && (
+              <p>Camera: {photo.camera.full_name}</p> // Display camera information
+            )}
           </div>
         ))}
       </div>
+      <div ref={observerRef} className="load-more">Load more...</div> {/* Trigger for lazy loading */}
     </div>
   );
 };
