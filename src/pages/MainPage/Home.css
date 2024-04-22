@@ -1,13 +1,13 @@
 /* Home.css */
 .home-container {
-    background-image: url('../../assets/star-background-color.png'); /* Replace 'star-background-color.png' with your actual background image */
+    background-image: url('../../assets/space-background-color.png'); /* Replace 'star-background-color.png' with your actual background image */
     background-size: cover;
     background-position: center;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    filter: grayscale(100%);
+    /* filter: grayscale(100%); */
   }
   
     
