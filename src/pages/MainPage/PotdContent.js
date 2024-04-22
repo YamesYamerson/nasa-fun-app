@@ -1,5 +1,5 @@
 import React from 'react';
-import { useFetchNasaApod } from '../../functions/useFetchNasaApod'; // Custom hook to fetch APOD content
+import { useFetchNasaApod } from '../../helper/useFetchNasaApod'; // Custom hook to fetch APOD content
 import './PotdContent.css'; // Import CSS file for styling
 import LoadingPage from '../../components/LoadingPage'; // Import LoadingScreen component
 
