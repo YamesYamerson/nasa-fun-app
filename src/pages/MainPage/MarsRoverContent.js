@@ -1,5 +1,5 @@
 import React from 'react';
-import { useFetchMarsRoverPhotos } from '../../functions/useFetchMarsRoverPhotos'; // Custom hook to fetch Mars Rover photos
+import { useFetchMarsRoverPhotos } from '../../helper/useFetchMarsRoverPhotos'; // Custom hook to fetch Mars Rover photos
 import './MarsRoverContent.css'; // Import CSS file for styling
 import LoadingPage from '../../components/LoadingPage'; // Import LoadingScreen component
 

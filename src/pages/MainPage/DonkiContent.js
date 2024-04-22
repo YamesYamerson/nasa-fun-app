@@ -1,5 +1,5 @@
 import React from 'react';
-import useFetchDONKI from '../../functions/useFetchDONKI';
+import useFetchDONKI from '../../helper/useFetchDONKI';
 
 const DonkiContent = () => {
     const { cmes, notifications, solarFlares } = useFetchDONKI();

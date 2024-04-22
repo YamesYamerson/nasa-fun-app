@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import useFetchNeoWs from '../../functions/useFetchNeoWs';
+import useFetchNeoWs from '../../helper/useFetchNeoWs';
 import './NeoWsContent.css';
 
 const NeoWsContent = ({ start_date, end_date }) => {

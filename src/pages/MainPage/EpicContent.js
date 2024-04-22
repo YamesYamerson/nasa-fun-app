@@ -1,5 +1,5 @@
 import React from 'react';
-import { useFetchNasaEpic } from '../../functions/useFetchNasaEpic'; // Custom hook to fetch NASA EPIC content
+import { useFetchNasaEpic } from '../../helper/useFetchNasaEpic'; // Custom hook to fetch NASA EPIC content
 import './EpicContent.css'; // Import CSS file for styling
 
 const EpicContent = ({ date = '2024-01-01' }) => {
