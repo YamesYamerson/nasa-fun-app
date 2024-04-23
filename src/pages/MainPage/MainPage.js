@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 import HappyPlanetLoading from '../../components/HappyPlanetLoading'; // Global loading animation
 import Home from './Home';
 import POTDContent from './PotdContent';
@@ -48,6 +49,7 @@ const MainPage = () => {
       ) : (
         renderPage() // Render the selected page content
       )}
+      <Footer />
     </div>
   );
 };
