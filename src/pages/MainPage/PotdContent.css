@@ -1,5 +1,50 @@
-.votd-title{
-    font-size: 2em;
-    font-weight: bold;
-    margin-bottom: 0.5em;
-}
+.apod {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  /* For larger screens, divide the screen into two columns */
+  @media (min-width: 992px) {
+   
+    
+    .apod {
+      flex-direction: row; /* Change to horizontal alignment */
+      justify-content: space-between;
+      padding: 0 40px 20px 40px;
+    }
+  
+    .apod > * {
+      flex: 1; /* Each child takes equal space */
+    }
+  
+    .apod h1 {
+      text-align: left; /* Align title to the left */
+    }
+  
+    .apod img, .apod iframe {
+      width: 100%; /* Use full width in each section */
+      max-height: 400px; /* Maintain a reasonable max height */
+      object-fit: cover; /* Ensure image/video covers the area */
+    }
+  
+    .apod p {
+      text-align: left; /* Align the explanation to the left */
+    }
+  }
+  
+  /* For smaller screens, keep the existing behavior */
+  @media (max-width: 991px) {
+    .apod {
+      flex-direction: column; /* Revert to vertical alignment */
+      align-items: center;
+    }
+  
+    .apod img, .apod iframe {
+      width: 80%; /* Reduce width for smaller screens */
+    }
+  }
+  
