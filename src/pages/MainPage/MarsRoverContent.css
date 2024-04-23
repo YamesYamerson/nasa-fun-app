@@ -1,11 +1,17 @@
 .mars-rover-content {
     text-align: center; /* Center-align the content */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
   }
   
   .mars-rover-photos {
     display: flex;
     flex-wrap: wrap; /* Wrap photos in case there are many */
     justify-content: center; /* Center-align the photos */
+    max-width: 80%; /* Ensure photos take full width */
   }
   
   .mars-rover-photo {
