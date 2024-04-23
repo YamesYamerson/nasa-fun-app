@@ -20,12 +20,12 @@
 
   .happy-planet-face img{
     border-radius: 50%;
-    width:600px;
-    height: 600px;
+    width:400px;
+    height: 400px;
   }
   /* Centering the loading animation in the middle of the page */
 .loading-container {
-    padding-top: 100px;
+    padding-top: 20px;
     display: flex;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
@@ -34,3 +34,9 @@
     background-color: transparent;
   }
   
+  @media (max-width: 768px) {
+    .happy-planet-face img{
+      width:300px;
+      height: 300px;
+    }
+  }

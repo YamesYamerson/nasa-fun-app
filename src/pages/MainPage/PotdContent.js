@@ -21,21 +21,24 @@ const PotdContent = () => {
   const isVideo = data.url.includes('youtube.com') || /\.(mp4|mov|avi)$/.test(data.url); // Check if content is video
 
   return (
-    <div className="apod">
+
+    <div>
       <h1>{data.title}</h1> {/* Display APOD title */}
-      {isVideo ? (
-        <iframe
-          width="560"
-          height="315"
-          src={data.url}
-          title={data.title}
-          frameBorder="0"
-          allowFullScreen
-        ></iframe> // Ensure correct syntax for the iframe
-      ) : (
-        <img src={data.url} alt={data.title} /> // Properly closed img tag with correct syntax
-      )}
-      <p>{data.explanation}</p> {/* Display APOD explanation */}
+      <div className="apod">
+        {isVideo ? (
+          <iframe
+            width="560"
+            height="315"
+            src={data.url}
+            title={data.title}
+            frameBorder="0"
+            allowFullScreen
+          ></iframe> // Ensure correct syntax for the iframe
+        ) : (
+          <img src={data.url} alt={data.title} /> // Properly closed img tag with correct syntax
+        )}
+        <p>{data.explanation}</p> {/* Display APOD explanation */}
+      </div>
     </div>
   );
 };

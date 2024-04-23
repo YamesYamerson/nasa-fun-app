@@ -7,7 +7,7 @@ import HappyPlanetLoading from '../../components/HappyPlanetLoading';
 
 const MarsRoverContent = ({ sol }) => {
   const [page, setPage] = useState(1); // Pagination
-  const pageSize = 5;
+  const pageSize = 3;
 
   const { data, error, loading } = useFetchMarsRoverPhotos(sol, page, pageSize);
 
