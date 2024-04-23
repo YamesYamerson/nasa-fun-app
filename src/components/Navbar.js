@@ -9,16 +9,16 @@ const Navbar = ({ onNavigate }) => {
           <button onClick={() => onNavigate('home')}>Home</button>
         </li>
         <li>
-          <button onClick={() => onNavigate('picoftheday')}>Daily Pic</button>
+          <button onClick={() => onNavigate('picoftheday')}>APOD</button>
         </li>
         <li>
           <button onClick={() => onNavigate('marsrover')}>Mars Rover</button>
         </li>
         <li>
-          <button onClick={() => onNavigate('epic')}>Climate Images</button>
+          <button onClick={() => onNavigate('epic')}>EPIC</button>
         </li>
         <li>
-          <button onClick={() => onNavigate('neow')}>Near Earth Object Images</button>
+          <button onClick={() => onNavigate('neow')}>NEO</button>
         </li>
         <li>
           <button onClick={() => onNavigate('donki')}>DONKI</button>

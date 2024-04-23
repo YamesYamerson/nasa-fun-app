@@ -9,22 +9,7 @@ const Footer = () => {
           <h2>Fun Space APIs</h2>
           <p>Explore the wonders of space through our APIs.</p>
         </div>
-        <div className="footer-center">
-          <ul>
-            <li>
-              <a href="#home">Home</a>
-            </li>
-            <li>
-              <a href="#about">About</a>
-            </li>
-            <li>
-              <a href="#services">Services</a>
-            </li>
-            <li>
-              <a href="#contact">Contact</a>
-            </li>
-          </ul>
-        </div>
+        
         <div className="footer-right">
           <p>Follow us on:</p>
           <ul className="social-media">
