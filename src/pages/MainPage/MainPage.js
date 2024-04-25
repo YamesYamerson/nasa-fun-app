@@ -9,6 +9,8 @@ import EpicContent from './EpicContent';
 import NeoWsContent from './NeoWsContent';
 import DonkiContent from './DonkiContent';
 import EarthContent from './EarthContent';
+import InsightContent from './InsightContent';
+import NasaLibContent from './NasaLibContent';
 import './MainPage.css';
 
 
@@ -40,6 +42,10 @@ const MainPage = () => {
         return <DonkiContent />;
       case 'earth':
         return <EarthContent />;
+      case 'insight':
+        return <InsightContent />;
+      case 'nasalib':
+        return <NasaLibContent />;
       default:
         return <Home />;
     }
