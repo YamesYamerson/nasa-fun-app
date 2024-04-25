@@ -8,7 +8,9 @@ import MarsRoverContent from './MarsRoverContent';
 import EpicContent from './EpicContent';
 import NeoWsContent from './NeoWsContent';
 import DonkiContent from './DonkiContent';
+import EarthContent from './EarthContent';
 import './MainPage.css';
+
 
 const MainPage = () => {
   const [currentPage, setCurrentPage] = useState('home'); // Current page
@@ -36,6 +38,8 @@ const MainPage = () => {
         return <NeoWsContent />;
       case 'donki':
         return <DonkiContent />;
+      case 'earth':
+        return <EarthContent />;
       default:
         return <Home />;
     }
