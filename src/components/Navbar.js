@@ -26,6 +26,12 @@ const Navbar = ({ onNavigate }) => {
         <li>
           <button onClick={() => onNavigate('earth')}>EARTH</button>
         </li>
+        <li>
+          <button onClick={() => onNavigate('insight')}>INSIGHT</button>
+        </li>
+        <li>
+          <button onClick={() => onNavigate('nasalib')}>NASA LIB</button>
+        </li>
 
       </ul>
     </nav>
